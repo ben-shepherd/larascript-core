@@ -4,22 +4,23 @@
   "description": "A collection of core components for Larascript Framework",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/your-repo-name.git"
+    "url": "git+https://github.com/your-username/your-repo-name.git"
   },
   "license": "ISC",
   "author": "ben.shepherd@gmx.com",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "dist/index.js",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
-"scripts": {
+  "scripts": {
     "prepare": "lefthook install",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "tsc",
-    "build:watch": "tsc --watch",
+    "build": "tsc --skipLibCheck",
+    "build:watch": "tsc --watch --skipLibCheck",
     "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
     "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
     "typecheck": "tsc --noEmit",
@@ -28,7 +29,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@types/jest": "^29.5.0",
+    "@types/jest": "^29.5.14",
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "jest": "^30.0.5",
