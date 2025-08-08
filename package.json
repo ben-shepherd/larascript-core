@@ -15,7 +15,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "prepare": "lefthook install",
+    "prepare": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

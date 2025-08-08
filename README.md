@@ -71,8 +71,8 @@ cd larascript-core-bundle
 # Install dependencies
 npm install
 
-# Install git hooks
-npm run prepare
+# Install git hooks (optional but recommended for development)
+lefthook install
 ```
 
 ### Available Scripts
@@ -98,6 +98,8 @@ The project uses Lefthook for git hooks that automatically:
 - Validate commit messages follow conventional format
 - Run linting and type checking on staged files
 - Ensure code quality standards are maintained
+
+**Note:** Git hooks are only needed for development. When installing this package as a dependency, you can skip the `lefthook install` step.
 
 ## Testing
 
