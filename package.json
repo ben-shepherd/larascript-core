@@ -1,6 +1,6 @@
 {
   "name": "@ben-shepherd/larascript-core-bundle",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A collection of core components for Larascript Framework",
   "repository": {
     "type": "git",
