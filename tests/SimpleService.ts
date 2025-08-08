@@ -1,4 +1,4 @@
-import { BaseAdapter, BaseAdapterTypes } from "@/base";
+import { BaseAdapter, BaseAdapterTypes } from "@/base/BaseAdapter";
 
 // Simple interface for a basic adapter
 interface SimpleAdapter {
