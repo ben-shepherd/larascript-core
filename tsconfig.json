@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "rootDir": "./src",
+    "rootDir": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "module": "commonjs",
     "target": "es2020",
@@ -19,6 +19,6 @@
     "sourceMap": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
