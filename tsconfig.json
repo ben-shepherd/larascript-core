@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "rootDir": "./",
+    "rootDir": "./src",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -19,6 +19,6 @@
     "sourceMap": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "src/tests/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
