@@ -2,7 +2,10 @@
   "name": "@ben-shepherd/larascript-core-bundle",
   "version": "1.0.0",
   "description": "A collection of core components for Larascript Framework",
-  "repisotry": "https://github.com/ben-shepherd/larascript-core-bundle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/your-repo-name.git"
+  },
   "license": "ISC",
   "author": "ben.shepherd@gmx.com",
   "type": "commonjs",
