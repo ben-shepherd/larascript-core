@@ -1,9 +1,6 @@
 import { AdapterException } from "@/exceptions";
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import SimpleService, {
-  MockAdapterA,
-  MockAdapterB,
-} from "./SimpleService";
+import SimpleService, { MockAdapterA, MockAdapterB } from "./SimpleService";
 
 describe("BaseAdapter Tests", () => {
   let testAdapter: SimpleService;

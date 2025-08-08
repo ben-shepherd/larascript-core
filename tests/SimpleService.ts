@@ -125,4 +125,3 @@ export default class SimpleService extends BaseAdapter<TestAdapterTypes> {
 
 // Export mock adapters for testing
 export { MockAdapterA, MockAdapterB, SimpleAdapter, TestAdapterTypes };
-
