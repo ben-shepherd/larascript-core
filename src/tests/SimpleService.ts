@@ -1,4 +1,4 @@
-import BaseAdapter, { BaseAdapterTypes } from "@src/bundle/base/BaseAdapter";
+import { BaseAdapter, BaseAdapterTypes } from "@src/bundle/base/BaseAdapter";
 
 // Simple interface for a basic adapter
 interface SimpleAdapter {

@@ -1,4 +1,4 @@
-import AdapterException from "@src/bundle/exceptions/AdapterException";
+import { AdapterException } from "@src/bundle/exceptions";
 
 /**
  * @template T type of the adapter
@@ -28,7 +28,7 @@ export type BaseAdapterTypes<T = unknown> = {
  *   // Implements specific auth service functionality while inheriting adapter management
  * }
  */
-abstract class BaseAdapter<AdapterTypes extends BaseAdapterTypes> {
+export abstract class BaseAdapter<AdapterTypes extends BaseAdapterTypes> {
   /**
    * @type {AdapterTypes}
    */
@@ -61,5 +61,3 @@ abstract class BaseAdapter<AdapterTypes extends BaseAdapterTypes> {
     return this.adapters[name];
   }
 }
-
-export default BaseAdapter;

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import AdapterException from "@src/bundle/exceptions/AdapterException";
+import { AdapterException } from "@src/bundle/exceptions";
 import SimpleService, {
   MockAdapterA,
   MockAdapterB,
