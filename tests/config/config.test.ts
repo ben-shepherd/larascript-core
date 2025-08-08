@@ -26,7 +26,7 @@ describe("BaseConfig Tests", () => {
       const testConfig = {
         name: "test",
         value: 123,
-        enabled: true
+        enabled: true,
       };
       config.setConfig(testConfig);
 
@@ -66,7 +66,7 @@ describe("BaseConfig Tests", () => {
       const testConfig = {
         apiKey: "secret-key",
         timeout: 5000,
-        retries: 3
+        retries: 3,
       };
       config.setConfig(testConfig);
 
@@ -84,13 +84,13 @@ describe("BaseConfig Tests", () => {
           port: 5432,
           credentials: {
             username: "user",
-            password: "pass"
-          }
+            password: "pass",
+          },
         },
         features: {
           caching: true,
-          logging: false
-        }
+          logging: false,
+        },
       };
       config.setConfig(testConfig);
 
@@ -103,14 +103,13 @@ describe("BaseConfig Tests", () => {
 
   describe("Configuration Updates", () => {
     test("should update existing configuration", () => {
-    
       // Set initial config
       config.setConfig({ name: "initial" });
       expect(config.getConfig<{ name: string }>().name).toBe("initial");
 
       // Update config
       config.setConfig({ name: "updated", newField: "value" });
-      const result = config.getConfig() as { name: string, newField?: string };
+      const result = config.getConfig() as { name: string; newField?: string };
       expect(result.name).toBe("updated");
       expect(result.newField).toBe("value");
     });
@@ -120,9 +119,9 @@ describe("BaseConfig Tests", () => {
       config.setConfig({
         complex: {
           nested: {
-            value: "test"
-          }
-        }
+            value: "test",
+          },
+        },
       });
 
       // Replace with simple config
@@ -152,7 +151,7 @@ describe("BaseConfig Tests", () => {
       const testConfig = {
         zero: 0,
         falseValue: false,
-        emptyString: ""
+        emptyString: "",
       };
       config.setConfig(testConfig);
 
@@ -180,6 +179,5 @@ describe("BaseConfig Tests", () => {
     test("should have setConfig method", () => {
       expect(typeof config.setConfig).toBe("function");
     });
-
   });
 });
