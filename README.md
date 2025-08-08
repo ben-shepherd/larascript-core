@@ -6,19 +6,6 @@ A collection of core components for the Larascript Framework, providing a robust
 
 The Larascript Core Bundle is a TypeScript package that provides essential building blocks for creating type-safe, extensible services and applications. It includes foundational patterns and utilities that can be used across different domains, from adapter patterns to service management and beyond. The package is designed to be modular and extensible, making it suitable for a wide range of use cases including but not limited to service providers, storage systems, authentication mechanisms, and more.
 
-## Features
-
-### 🔧 Core Patterns & Utilities
-- **BaseAdapter Pattern** - Type-safe component management with full TypeScript support
-- **Duplicate prevention** - prevents registering components with the same name
-- **Centralized component storage** and retrieval
-- **Error handling** for missing or duplicate components
-- **Generic type system** for compile-time type safety
-
-### 🚨 Exception Handling
-- **AdapterException** - specialized error handling for component-related issues
-- **Descriptive error messages** for debugging and troubleshooting
-- **Consistent error naming** and structure
 
 ### 🛠️ Development Tools
 - **TypeScript** - Full type safety and modern JavaScript features
