@@ -1,5 +1,5 @@
 {
-  "name": "larascript-core-bundle",
+  "name": "@ben-shepherd/larascript-core-bundle",
   "version": "1.0.0",
   "description": "A collection of core components for Larascript Framework",
   "license": "ISC",
