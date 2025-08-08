@@ -1,0 +1,146 @@
+# Larascript Core Bundle
+
+A collection of core components for the Larascript Framework, providing a robust foundation for building type-safe, extensible applications with modular architecture patterns.
+
+## Overview
+
+The Larascript Core Bundle is a TypeScript package that provides essential building blocks for creating type-safe, extensible services and applications. It includes foundational patterns and utilities that can be used across different domains, from adapter patterns to service management and beyond. The package is designed to be modular and extensible, making it suitable for a wide range of use cases including but not limited to service providers, storage systems, authentication mechanisms, and more.
+
+## Features
+
+### 🔧 Core Patterns & Utilities
+- **BaseAdapter Pattern** - Type-safe component management with full TypeScript support
+- **Duplicate prevention** - prevents registering components with the same name
+- **Centralized component storage** and retrieval
+- **Error handling** for missing or duplicate components
+- **Generic type system** for compile-time type safety
+
+### 🚨 Exception Handling
+- **AdapterException** - specialized error handling for component-related issues
+- **Descriptive error messages** for debugging and troubleshooting
+- **Consistent error naming** and structure
+
+### 🛠️ Development Tools
+- **TypeScript** - Full type safety and modern JavaScript features
+- **Jest** - Comprehensive testing framework
+- **ESLint** - Code quality and consistency
+- **Prettier** - Code formatting
+- **Lefthook** - Git hooks for quality assurance
+- **Commitlint** - Conventional commit message validation
+
+
+## Documentation
+
+- **[Adapters](./src/docs/adapters.md)** - Comprehensive guide to the BaseAdapter pattern, usage examples, and best practices
+
+## Installation
+
+```bash
+npm install larascript-core-bundle
+```
+
+## Quick Start
+
+```typescript
+import BaseAdapter, { BaseAdapterTypes } from "larascript-core-bundle";
+
+// Define your component interface
+interface StorageProvider {
+  save(key: string, value: any): Promise<void>;
+  get(key: string): Promise<any>;
+  delete(key: string): Promise<void>;
+}
+
+// Define component types for your service
+interface StorageProviderTypes extends BaseAdapterTypes {
+  local: StorageProvider;
+  remote: StorageProvider;
+  cache: StorageProvider;
+}
+
+// Extend BaseAdapter with your types
+class StorageService extends BaseAdapter<StorageProviderTypes> {
+  constructor() {
+    super();
+    this.addAdapterOnce("local", new LocalStorageProvider());
+  }
+}
+```
+
+For detailed usage examples and best practices, see the [Adapters documentation](./src/docs/adapters.md).
+
+## Development
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Setup
+```bash
+# Clone the repository
+git clone <repository-url>
+cd larascript-core-bundle
+
+# Install dependencies
+npm install
+
+# Install git hooks
+npm run prepare
+```
+
+### Available Scripts
+
+```bash
+# Build the project
+npm run build
+
+# Run tests
+npm test
+npm run test:watch
+npm run test:coverage
+
+# Code quality
+npm run lint
+npm run lint:fix
+npm run typecheck
+npm run format
+```
+
+### Git Hooks
+The project uses Lefthook for git hooks that automatically:
+- Validate commit messages follow conventional format
+- Run linting and type checking on staged files
+- Ensure code quality standards are maintained
+
+## Testing
+
+The package includes comprehensive test coverage demonstrating:
+- Component registration and retrieval
+- Error handling for duplicate and missing components
+- Type safety validation
+- Integration testing with mock components
+
+Run tests with:
+```bash
+npm test
+```
+
+## Contributing
+
+When contributing to this project:
+1. Follow the existing code style and patterns
+2. Add comprehensive tests for new features
+3. Update documentation as needed
+4. Ensure all tests pass before submitting
+5. Follow conventional commit message format
+
+### Branch Naming Convention
+Branches must follow the pattern: `^(feat|fix|hotfix|release|test|experimental|refactor)/.+$`
+
+## License
+
+ISC License - see package.json for details.
+
+## Author
+
+Ben Shepherd - ben.shepherd@gmx.com
