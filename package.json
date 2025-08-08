@@ -1,6 +1,6 @@
 {
   "name": "@ben-shepherd/larascript-core-bundle",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "A collection of core components for Larascript Framework",
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "tsc --skipLibCheck",
+    "build": "tsc --skipLibCheck && tsc-alias",
     "build:watch": "tsc --watch --skipLibCheck",
     "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
     "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
