@@ -4,9 +4,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es2020",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
