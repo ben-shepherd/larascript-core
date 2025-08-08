@@ -1,4 +1,4 @@
-import { AdapterException } from "@src/bundle/exceptions";
+import { AdapterException } from "@/exceptions";
 
 /**
  * @template T type of the adapter

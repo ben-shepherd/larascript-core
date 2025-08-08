@@ -2,9 +2,9 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
   moduleNameMapper: {
-    "^@src/(.*)$": "<rootDir>/src/$1",
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testMatch: ["<rootDir>/src/**/*.test.ts"],
+  testMatch: ["<rootDir>/tests/**/*.test.ts"],
   collectCoverageFrom: [
     "src/**/*.{ts,js}",
     "!src/**/*.test.{ts,js}",

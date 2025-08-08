@@ -1,4 +1,4 @@
-import { BaseAdapter, BaseAdapterTypes } from "@src/bundle/base/BaseAdapter";
+import { BaseAdapter, BaseAdapterTypes } from "@/base";
 
 // Simple interface for a basic adapter
 interface SimpleAdapter {
@@ -125,3 +125,4 @@ export default class SimpleService extends BaseAdapter<TestAdapterTypes> {
 
 // Export mock adapters for testing
 export { MockAdapterA, MockAdapterB, SimpleAdapter, TestAdapterTypes };
+
