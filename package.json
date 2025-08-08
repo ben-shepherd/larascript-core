@@ -1,6 +1,6 @@
 {
   "name": "@ben-shepherd/larascript-core-bundle",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A collection of core components for Larascript Framework",
   "repository": {
     "type": "git",
@@ -9,10 +9,15 @@
   "license": "ISC",
   "author": "ben.shepherd@gmx.com",
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com"
+  },
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./base": "./dist/src/bundle/base/index.js",
+    "./exceptions": "./dist/src/bundle/exceptions/index.js"
   },
   "scripts": {
     "prepare": "npm run build",
