@@ -11,8 +11,6 @@ pre-commit:
     #types:
       #glob: '*.{js,ts, jsx, tsx}'
       #run: npm run typecheck
-    #gitLeaks:
-      #run: npm run gitleaks
 pre-push:
   parallel: true
   commands:
