@@ -3,10 +3,10 @@ import { Environment } from "@/consts";
 import { Kernel } from "@/kernel";
 import { describe } from "@jest/globals";
 import {
-  LoggerProvider,
-  MockFailedConnectionDatabaseProvider,
-  MockSuccessfulConnectionDatabaseProvider,
-  TestContainers,
+    LoggerProvider,
+    MockFailedConnectionDatabaseProvider,
+    MockSuccessfulConnectionDatabaseProvider,
+    TestContainers,
 } from "./providers/providers";
 
 describe("Dependency Loader Test Suite", () => {
@@ -29,7 +29,7 @@ describe("Dependency Loader Test Suite", () => {
       );
     });
 
-    test("should have logged a connection successful", async () => {
+    test("should have logged a connection successful, logger should contain success message", async () => {
       const database = AppSingleton.container<TestContainers, "database">(
         "database",
       );
@@ -41,7 +41,7 @@ describe("Dependency Loader Test Suite", () => {
     });
   });
 
-  describe("Kernel with connection failed database provider", () => {
+  describe("Kernel with connection failed database provider, logger should contain failed message", () => {
     beforeAll(async () => {
       // Reset the kernel before each test
       Kernel.getInstance().containers.clear();
