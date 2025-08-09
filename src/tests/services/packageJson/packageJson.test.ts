@@ -6,7 +6,7 @@ describe("Package Json Test Suite", () => {
 
   beforeEach(() => {
     envService = new PackageJsonService({
-      packageJsonPath: "path/to/package.json"
+      packageJsonPath: "path/to/package.json",
     });
   });
 

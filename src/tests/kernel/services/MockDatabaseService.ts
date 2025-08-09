@@ -42,4 +42,3 @@ class MockDatabaseService implements RequiresDependency {
 }
 
 export default MockDatabaseService;
- 
