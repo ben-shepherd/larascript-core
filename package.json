@@ -48,5 +48,8 @@
   "validate-branch-name": {
     "pattern": "^(feat|fix|hotfix|release|test|experimental|refactor)/.+$",
     "errorMsg": "Branch name validation failed"
+  },
+  "dependencies": {
+    "@ben-shepherd/larascript-utils-bundle": "github:ben-shepherd/larascript-utils-bundle"
   }
 }
