@@ -5,12 +5,19 @@ import { Containers, Kernel } from "@/kernel/Kernel";
 /**
  * @module App
  * @description The App service allows you to access kernel containers and configure the app environment
+ * @deprecated
  */
 export const appSingleton = <T extends Containers, K extends keyof T = keyof T>(
   name: K,
-): T[K] => {
-  return AppSingleton.container(name as keyof Containers);
-};
+) => AppSingleton.container<T>(name) as T[K];
+
+/**
+ * @module App
+ * @description The Dependency Loader allows you to access kernel containers and configure the environment
+ */
+export const depLoader = <T extends Containers, K extends keyof T = keyof T>(
+  name: K,
+) => AppSingleton.container<T>(name) as T[K];
 
 /**
  * Short hand for App.env()
@@ -21,6 +28,7 @@ export const appEnv = (): string | undefined => AppSingleton.env();
  * App service
  * Allows you to access kernel containers
  * and configure the app environment
+ * @deprecated
  */
 
 export class AppSingleton extends BaseSingleton {
@@ -81,16 +89,16 @@ export class AppSingleton extends BaseSingleton {
    * @param name The name of the container
    * @returns The container if it exists, or throws an UninitializedContainerError if not
    */
-  public static container<K extends keyof Containers = keyof Containers>(
+  public static container<T extends Containers, K extends keyof T = keyof T>(
     name: K,
-  ): Containers[K] {
+  ): T[K] {
     const kernel = Kernel.getInstance();
 
-    if (!kernel.containers.has(name)) {
+    if (!kernel.containers.has(name as keyof Containers)) {
       throw new UninitializedContainerError(name as string);
     }
 
-    return kernel.containers.get(name);
+    return kernel.containers.get(name as keyof Containers) as T[K];
   }
 
   /**
@@ -139,3 +147,5 @@ export class AppSingleton extends BaseSingleton {
     return this.getInstance().env;
   }
 }
+
+export class DependencyLoader extends AppSingleton {}
