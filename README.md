@@ -18,6 +18,9 @@ The Larascript Core Bundle is a TypeScript package that provides essential build
 
 ## Documentation
 
+- **[Kernel](./docs/kernel.md)** - Detailed documentation on the application kernel, provider management, bootstrapping, and advanced usage
+
+
 - **[Adapters](./src/docs/adapters.md)** - Comprehensive guide to the BaseAdapter pattern, usage examples, 
 and best practices
 
@@ -25,43 +28,13 @@ and best practices
 
 - **[Singletons](./docs/singletons.md)** - Guide to the BaseSingleton pattern, usage, and advanced examples
 
-
+- **[Services](./docs/service.md)** - Learn about the BaseService class, type-safe service configuration, and service usage patterns
 
 ## Installation
 
 ```bash
-npm install larascript-core-bundle
+npm install ben-shepherd/larascript-core-bundle
 ```
-
-## Quick Start
-
-```typescript
-import BaseAdapter, { BaseAdapterTypes } from "larascript-core-bundle";
-
-// Define your component interface
-interface StorageProvider {
-  save(key: string, value: any): Promise<void>;
-  get(key: string): Promise<any>;
-  delete(key: string): Promise<void>;
-}
-
-// Define component types for your service
-interface StorageProviderTypes extends BaseAdapterTypes {
-  local: StorageProvider;
-  remote: StorageProvider;
-  cache: StorageProvider;
-}
-
-// Extend BaseAdapter with your types
-class StorageService extends BaseAdapter<StorageProviderTypes> {
-  constructor() {
-    super();
-    this.addAdapterOnce("local", new LocalStorageProvider());
-  }
-}
-```
-
-For detailed usage examples and best practices, see the [Adapters documentation](./src/docs/adapters.md).
 
 ## Development
 
@@ -132,6 +105,8 @@ When contributing to this project:
 
 ### Branch Naming Convention
 Branches must follow the pattern: `^(feat|fix|hotfix|release|test|experimental|refactor)/.+$`
+
+Example: feat/example
 
 ## License
 
