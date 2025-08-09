@@ -1,4 +1,7 @@
-import { DependencyLoader, RequiresDependency } from "@/interfaces/Dependency";
+import {
+  DependencyLoader,
+  RequiresDependency,
+} from "@/interfaces/Dependency.t";
 import { TestContainers } from "../providers/providers";
 import LoggerService from "./LoggerService";
 

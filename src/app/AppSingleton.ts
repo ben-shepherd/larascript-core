@@ -5,17 +5,8 @@ import { Containers, Kernel } from "@/kernel/Kernel";
 /**
  * @module App
  * @description The App service allows you to access kernel containers and configure the app environment
- * @deprecated
  */
 export const appSingleton = <T extends Containers, K extends keyof T = keyof T>(
-  name: K,
-) => AppSingleton.container<T>(name) as T[K];
-
-/**
- * @module App
- * @description The Dependency Loader allows you to access kernel containers and configure the environment
- */
-export const depLoader = <T extends Containers, K extends keyof T = keyof T>(
   name: K,
 ) => AppSingleton.container<T>(name) as T[K];
 
@@ -28,7 +19,6 @@ export const appEnv = (): string | undefined => AppSingleton.env();
  * App service
  * Allows you to access kernel containers
  * and configure the app environment
- * @deprecated
  */
 
 export class AppSingleton extends BaseSingleton {
@@ -147,5 +137,3 @@ export class AppSingleton extends BaseSingleton {
     return this.getInstance().env;
   }
 }
-
-export class DependencyLoader extends AppSingleton {}
