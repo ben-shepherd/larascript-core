@@ -3,10 +3,10 @@ import { Environment } from "@/consts";
 import { Kernel } from "@/kernel";
 import { describe } from "@jest/globals";
 import {
-    LoggerProvider,
-    MockFailedConnectionDatabaseProvider,
-    MockSuccessfulConnectionDatabaseProvider,
-    TestContainers,
+  LoggerProvider,
+  MockFailedConnectionDatabaseProvider,
+  MockSuccessfulConnectionDatabaseProvider,
+  TestContainers,
 } from "./providers/providers";
 
 describe("Dependency Loader Test Suite", () => {
