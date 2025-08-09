@@ -26,6 +26,7 @@ and best practices
 - **[Singletons](./docs/singletons.md)** - Guide to the BaseSingleton pattern, usage, and advanced examples
 
 
+
 ## Installation
 
 ```bash
