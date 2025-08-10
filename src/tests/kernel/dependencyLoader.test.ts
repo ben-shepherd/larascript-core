@@ -3,8 +3,8 @@ import { Environment } from "@/consts";
 import { Kernel } from "@/kernel";
 import { describe } from "@jest/globals";
 import {
+  AlternativeDependencyLoaderProvider,
   LoggerProvider,
-  MockFailedConnectionDatabaseProvider,
   MockSuccessfulConnectionDatabaseProvider,
   TestContainers,
 } from "./providers/providers";
@@ -53,7 +53,7 @@ describe("Dependency Loader Test Suite", () => {
           environment: Environment.testing,
           providers: [
             new LoggerProvider(),
-            new MockFailedConnectionDatabaseProvider(),
+            new AlternativeDependencyLoaderProvider(),
           ],
         },
         {},

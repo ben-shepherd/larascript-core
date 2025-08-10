@@ -1,5 +1,6 @@
 import { BaseSingleton } from "@/base";
 import { UninitializedContainerError } from "@/exceptions/UninitializedContainerError";
+import { RequiresDependency } from "@/interfaces";
 import { Containers, Kernel } from "@/kernel/Kernel";
 
 /**
@@ -9,6 +10,28 @@ import { Containers, Kernel } from "@/kernel/Kernel";
 export const appSingleton = <T extends Containers, K extends keyof T = keyof T>(
   name: K,
 ) => AppSingleton.container<T>(name) as T[K];
+
+/**
+/**
+ * Returns the dependency loader for the application.
+ * This function provides access to the application's dependency injection loader,
+ * allowing you to resolve and inject dependencies as needed.
+ * 
+ * @returns The application's dependency loader instance.
+ */
+export const dependencyLoader = () => AppSingleton.loader()
+
+/**
+/**
+ * Injects dependencies into an instance that implements RequiresDependency.
+ * 
+ * @param instance The instance to inject dependencies into.
+ * @returns The same instance with dependencies injected.
+ */
+export const withDependencies = <T extends RequiresDependency>(instance: T) => {
+  instance.setDepdencyLoader(dependencyLoader())
+  return instance
+}
 
 /**
  * Short hand for App.env()
@@ -89,6 +112,18 @@ export class AppSingleton extends BaseSingleton {
     }
 
     return kernel.containers.get(name as keyof Containers) as T[K];
+  }
+
+
+  /**
+   * Returns the dependency loader function.
+   * This function can be passed into services or classes that require access to application containers
+   * for dependency injection. It allows services to retrieve their required dependencies by name.
+   *
+   * @returns A function that retrieves containers by name.
+   */
+  public static loader() {
+    return this.container;
   }
 
   /**

@@ -1,5 +1,6 @@
-import { AppSingleton } from "@/app";
+import { withDependencies } from "@/app";
 import { BaseProvider } from "@/base";
+import AltMockDatabaseService from "../services/AltMockDatabaseService";
 import LoggerService from "../services/LoggerService";
 import MockDatabaseService from "../services/MockDatabaseService";
 
@@ -27,10 +28,12 @@ export class LoggerProvider extends BaseProvider {
 
 export class MockSuccessfulConnectionDatabaseProvider extends BaseProvider {
   async register(): Promise<void> {
-    const database = new MockDatabaseService({
-      connectionWillSucceed: true,
-    });
-    database.setDepdencyLoader(AppSingleton.container);
+
+    const database = withDependencies(
+      new MockDatabaseService({
+        connectionWillSucceed: true,
+      })
+    );
 
     this.bind("database", database);
   }
@@ -38,10 +41,25 @@ export class MockSuccessfulConnectionDatabaseProvider extends BaseProvider {
 
 export class MockFailedConnectionDatabaseProvider extends BaseProvider {
   async register(): Promise<void> {
-    const database = new MockDatabaseService({
-      connectionWillSucceed: false,
-    });
-    database.setDepdencyLoader(AppSingleton.container);
+
+    const database = withDependencies(
+      new MockDatabaseService({
+        connectionWillSucceed: false,
+      })
+    );
+
+    this.bind("database", database);
+  }
+}
+
+export class AlternativeDependencyLoaderProvider extends BaseProvider {
+  async register(): Promise<void> {
+
+    const database = withDependencies(
+      new AltMockDatabaseService({
+        connectionWillSucceed: false,
+      })
+    );
 
     this.bind("database", database);
   }
