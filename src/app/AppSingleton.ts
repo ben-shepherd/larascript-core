@@ -19,7 +19,7 @@ export const appSingleton = <T extends Containers, K extends keyof T = keyof T>(
  * 
  * @returns The application's dependency loader instance.
  */
-export const dependencyLoader = () => AppSingleton.loader()
+export const dependencyLoader = () => AppSingleton.loader();
 
 /**
 /**
@@ -29,9 +29,9 @@ export const dependencyLoader = () => AppSingleton.loader()
  * @returns The same instance with dependencies injected.
  */
 export const withDependencies = <T extends RequiresDependency>(instance: T) => {
-  instance.setDepdencyLoader(dependencyLoader())
-  return instance
-}
+  instance.setDepdencyLoader(dependencyLoader());
+  return instance;
+};
 
 /**
  * Short hand for App.env()
@@ -113,7 +113,6 @@ export class AppSingleton extends BaseSingleton {
 
     return kernel.containers.get(name as keyof Containers) as T[K];
   }
-
 
   /**
    * Returns the dependency loader function.

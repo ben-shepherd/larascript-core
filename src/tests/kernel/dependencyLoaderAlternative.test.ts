@@ -6,11 +6,10 @@ import {
   AlternativeDependencyLoaderProvider,
   LoggerProvider,
   MockFailedConnectionDatabaseProvider,
-  MockSuccessfulConnectionDatabaseProvider
+  MockSuccessfulConnectionDatabaseProvider,
 } from "./providers/providers";
 
 describe("Dependency Loader Test Suite", () => {
-
   beforeEach(async () => {
     // Reset the kernel before each test
     Kernel.getInstance().containers.clear();
@@ -23,16 +22,14 @@ describe("Dependency Loader Test Suite", () => {
       await Kernel.boot(
         {
           environment: Environment.testing,
-          providers: [
-            new LoggerProvider(),
-          ],
+          providers: [new LoggerProvider()],
         },
         {},
       );
 
       const loader = AppSingleton.loader();
       const logger = loader("logger");
-      
+
       expect(loader).toBeInstanceOf(Function);
       expect(logger).toBeDefined();
     });
@@ -43,16 +40,14 @@ describe("Dependency Loader Test Suite", () => {
       await Kernel.boot(
         {
           environment: Environment.testing,
-          providers: [
-            new LoggerProvider(),
-          ],
+          providers: [new LoggerProvider()],
         },
         {},
       );
 
       const loader = dependencyLoader();
       const logger = loader("logger");
-      
+
       expect(loader).toBeInstanceOf(Function);
       expect(logger).toBeDefined();
     });
@@ -63,9 +58,7 @@ describe("Dependency Loader Test Suite", () => {
       await Kernel.boot(
         {
           environment: Environment.testing,
-          providers: [
-            new LoggerProvider(),
-          ],
+          providers: [new LoggerProvider()],
         },
         {},
       );
@@ -75,9 +68,11 @@ describe("Dependency Loader Test Suite", () => {
       };
 
       const result = withDependencies(mockService);
-      
+
       expect(result).toBe(mockService);
-      expect(mockService.setDepdencyLoader).toHaveBeenCalledWith(dependencyLoader());
+      expect(mockService.setDepdencyLoader).toHaveBeenCalledWith(
+        dependencyLoader(),
+      );
     });
   });
 
@@ -96,9 +91,9 @@ describe("Dependency Loader Test Suite", () => {
 
       const database = AppSingleton.container("database");
       const logger = AppSingleton.container("logger");
-      
+
       await database.connect();
-      
+
       expect(logger.containsLog("Connection OK")).toBe(true);
       expect(logger.containsLog("Connection FAILED")).toBe(false);
     });
@@ -119,9 +114,9 @@ describe("Dependency Loader Test Suite", () => {
 
       const database = AppSingleton.container("database");
       const logger = AppSingleton.container("logger");
-      
+
       await database.connect();
-      
+
       expect(logger.containsLog("Connection FAILED")).toBe(true);
       expect(logger.containsLog("Connection OK")).toBe(false);
     });
@@ -142,9 +137,9 @@ describe("Dependency Loader Test Suite", () => {
 
       const database = AppSingleton.container("database");
       const logger = AppSingleton.container("logger");
-      
+
       await database.connect();
-      
+
       expect(logger.containsLog("Connection FAILED")).toBe(true);
     });
   });

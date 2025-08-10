@@ -28,11 +28,10 @@ export class LoggerProvider extends BaseProvider {
 
 export class MockSuccessfulConnectionDatabaseProvider extends BaseProvider {
   async register(): Promise<void> {
-
     const database = withDependencies(
       new MockDatabaseService({
         connectionWillSucceed: true,
-      })
+      }),
     );
 
     this.bind("database", database);
@@ -41,11 +40,10 @@ export class MockSuccessfulConnectionDatabaseProvider extends BaseProvider {
 
 export class MockFailedConnectionDatabaseProvider extends BaseProvider {
   async register(): Promise<void> {
-
     const database = withDependencies(
       new MockDatabaseService({
         connectionWillSucceed: false,
-      })
+      }),
     );
 
     this.bind("database", database);
@@ -54,11 +52,10 @@ export class MockFailedConnectionDatabaseProvider extends BaseProvider {
 
 export class AlternativeDependencyLoaderProvider extends BaseProvider {
   async register(): Promise<void> {
-
     const database = withDependencies(
       new AltMockDatabaseService({
         connectionWillSucceed: false,
-      })
+      }),
     );
 
     this.bind("database", database);
