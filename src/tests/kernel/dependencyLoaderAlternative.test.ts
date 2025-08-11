@@ -17,7 +17,7 @@ describe("Dependency Loader Test Suite", () => {
     Kernel.getInstance().readyProviders = [];
   });
 
-  describe("AppSingleton.loader() method", () => {
+  describe("AppSingleton.dependencies() method", () => {
     test("should return a function that can retrieve containers", async () => {
       await Kernel.boot(
         {
@@ -27,7 +27,7 @@ describe("Dependency Loader Test Suite", () => {
         {},
       );
 
-      const loader = AppSingleton.loader();
+      const loader = AppSingleton.dependencies();
       const logger = loader("logger");
 
       expect(loader).toBeInstanceOf(Function);

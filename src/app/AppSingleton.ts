@@ -19,7 +19,7 @@ export const appSingleton = <T extends Containers, K extends keyof T = keyof T>(
  * 
  * @returns The application's dependency loader instance.
  */
-export const dependencyLoader = () => AppSingleton.loader();
+export const dependencyLoader = () => AppSingleton.dependencies();
 
 /**
 /**
@@ -121,7 +121,7 @@ export class AppSingleton extends BaseSingleton {
    *
    * @returns A function that retrieves containers by name.
    */
-  public static loader() {
+  public static dependencies() {
     return this.container;
   }
 
