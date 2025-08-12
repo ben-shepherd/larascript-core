@@ -1,4 +1,4 @@
-# Larascript Core Bundle
+# Larascript Core
 
 A collection of core components for the Larascript Framework, providing a robust foundation for building type-safe, extensible applications with modular architecture patterns.
 
