@@ -48,7 +48,7 @@ npm install ben-shepherd/larascript-core
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd larascript-core-bundle
+cd larascript-core
 
 # Install dependencies
 npm install
