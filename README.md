@@ -35,7 +35,7 @@ and best practices
 ## Installation
 
 ```bash
-npm install ben-shepherd/larascript-core-bundle
+npm install ben-shepherd/larascript-core
 ```
 
 ## Development
