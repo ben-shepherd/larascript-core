@@ -48,7 +48,7 @@ interface RequiresDependency {
 ### Basic Container Access
 
 ```typescript
-import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core";
 
 // Define your container types
 interface AppContainers {
@@ -69,7 +69,7 @@ logger.info("Database connected successfully");
 ### Safe Container Access
 
 ```typescript
-import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core";
 
 // Safe access that won't throw if container doesn't exist
 const cache = AppSingleton.safeContainer<AppContainers, "cache">("cache");
@@ -84,7 +84,7 @@ if (cache) {
 ### Container Readiness Check
 
 ```typescript
-import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core";
 
 // Check if a container is ready before using it
 if (AppSingleton.containerReady<AppContainers, "database">("database")) {
@@ -98,7 +98,7 @@ if (AppSingleton.containerReady<AppContainers, "database">("database")) {
 ### Services with Dependencies
 
 ```typescript
-import { RequiresDependency, DependencyLoader } from "ben-shepherd/larascript-core-bundle";
+import { RequiresDependency, DependencyLoader } from "ben-shepherd/larascript-core";
 
 class DatabaseService implements RequiresDependency {
   private logger!: LoggerService;
@@ -128,7 +128,7 @@ class DatabaseService implements RequiresDependency {
 ### Provider Integration
 
 ```typescript
-import { BaseProvider } from "ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "ben-shepherd/larascript-core";
 
 class DatabaseProvider extends BaseProvider {
   async register(): Promise<void> {
@@ -159,7 +159,7 @@ class DatabaseProvider extends BaseProvider {
 ### Conditional Dependencies
 
 ```typescript
-import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core";
 
 class FeatureService {
   private cache?: CacheService;
@@ -190,7 +190,7 @@ class FeatureService {
 ### Environment-Specific Dependencies
 
 ```typescript
-import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core";
 
 class ConfigService {
   getDatabaseConfig(): DatabaseConfig {
@@ -223,7 +223,7 @@ class ConfigService {
 ### Dependency Chains
 
 ```typescript
-import { RequiresDependency, DependencyLoader } from "ben-shepherd/larascript-core-bundle";
+import { RequiresDependency, DependencyLoader } from "ben-shepherd/larascript-core";
 
 class OrderService implements RequiresDependency {
   private database!: DatabaseService;
@@ -260,7 +260,7 @@ class OrderService implements RequiresDependency {
 The system throws `UninitializedContainerError` when trying to access a container that hasn't been registered:
 
 ```typescript
-import { AppSingleton, UninitializedContainerError } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton, UninitializedContainerError } from "ben-shepherd/larascript-core";
 
 try {
   const service = AppSingleton.container<AppContainers, "unknown">("unknown");
@@ -274,7 +274,7 @@ try {
 ### Safe Error Handling Pattern
 
 ```typescript
-import { AppSingleton } from "ben-shepherd/larascript-core-bundle";
+import { AppSingleton } from "ben-shepherd/larascript-core";
 
 function getServiceSafely<T extends AppContainers, K extends keyof T>(
   name: K

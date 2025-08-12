@@ -34,7 +34,7 @@ A mixin that provides configuration management capabilities to any class. Implem
 ### Basic Implementation
 
 ```typescript
-import { BaseConfig } from "ben-shepherd/larascript-core-bundle";
+import { BaseConfig } from "ben-shepherd/larascript-core";
 
 // Define your configuration interface
 interface AppConfig {

@@ -1,10 +1,10 @@
 {
-  "name": "@ben-shepherd/larascript-core-bundle",
+  "name": "@ben-shepherd/larascript-core",
   "version": "1.0.23",
-  "description": "A collection of core components for Larascript Framework",
+  "description": "Core modules and utilities for the Larascript Framework.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ben-shepherd/larascript-core-bundle"
+    "url": "git+https://github.com/ben-shepherd/larascript-core"
   },
   "license": "ISC",
   "author": "ben.shepherd@gmx.com",

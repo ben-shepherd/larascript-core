@@ -35,7 +35,7 @@ and best practices
 ## Installation
 
 ```bash
-npm install ben-shepherd/larascript-core-bundle
+npm install ben-shepherd/larascript-core
 ```
 
 ## Development
@@ -48,7 +48,7 @@ npm install ben-shepherd/larascript-core-bundle
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd larascript-core-bundle
+cd larascript-core
 
 # Install dependencies
 npm install
