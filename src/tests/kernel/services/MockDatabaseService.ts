@@ -10,7 +10,7 @@ type MockDatabaseServiceOptions = {
 };
 
 class MockDatabaseService implements RequiresDependency {
-  protected logger!: LoggerService;
+  logger!: LoggerService;
 
   constructor(
     protected options: MockDatabaseServiceOptions = {

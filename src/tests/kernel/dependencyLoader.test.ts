@@ -1,4 +1,4 @@
-import { AppSingleton } from "@/app";
+import { AppSingleton, CreateDependencyLoader } from "@/app";
 import { Environment } from "@/consts";
 import { Kernel } from "@/kernel";
 import { describe } from "@jest/globals";
@@ -8,6 +8,8 @@ import {
   MockSuccessfulConnectionDatabaseProvider,
   TestContainers,
 } from "./providers/providers";
+import LoggerService from "./services/LoggerService";
+import MockDatabaseService from "./services/MockDatabaseService";
 
 describe("Dependency Loader Test Suite", () => {
   describe("Kernel with successful database provider", () => {
@@ -69,6 +71,17 @@ describe("Dependency Loader Test Suite", () => {
       await database.connect();
 
       expect(logger.containsLog("Connection FAILED")).toBeTruthy();
+    });
+
+    test("should create dependency loader", async () => {
+      const loader = CreateDependencyLoader.create({
+        logger: new LoggerService(),
+      });
+
+      const database = new MockDatabaseService();
+      database.setDepdencyLoader(loader);
+
+      expect(typeof database.logger?.log === "function").toBeTruthy();
     });
   });
 });

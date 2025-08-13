@@ -1,6 +1,9 @@
 import { Containers } from "@/kernel";
 
-export type DependencyLoader = <T extends Containers, K extends keyof T>(
+export type DependencyLoader<C extends Containers = Containers> = <
+  T extends C,
+  K extends keyof T,
+>(
   name: K,
 ) => T[K];
 
