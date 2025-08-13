@@ -64,13 +64,13 @@ describe("Dependency Loader Test Suite", () => {
       );
 
       const mockService = {
-        setDepdencyLoader: jest.fn(),
+        setDependencyLoader: jest.fn(),
       };
 
       const result = withDependencies(mockService);
 
       expect(result).toBe(mockService);
-      expect(mockService.setDepdencyLoader).toHaveBeenCalledWith(
+      expect(mockService.setDependencyLoader).toHaveBeenCalledWith(
         dependencyLoader(),
       );
     });

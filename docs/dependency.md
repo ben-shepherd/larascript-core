@@ -39,7 +39,7 @@ Interface for services that require dependency injection:
 
 ```typescript
 interface RequiresDependency {
-  setDepdencyLoader(loader: DependencyLoader): void;
+  setDependencyLoader(loader: DependencyLoader): void;
 }
 ```
 
@@ -105,7 +105,7 @@ class DatabaseService implements RequiresDependency {
   
   constructor(private config: DatabaseConfig) {}
   
-  setDepdencyLoader(loader: DependencyLoader): void {
+  setDependencyLoader(loader: DependencyLoader): void {
     // Inject the logger dependency
     this.logger = loader<AppContainers, "logger">("logger");
   }
@@ -140,7 +140,7 @@ class DatabaseProvider extends BaseProvider {
     });
     
     // Set up dependency injection
-    database.setDepdencyLoader(AppSingleton.container);
+    database.setDependencyLoader(AppSingleton.container);
     
     // Bind to container
     this.bind("database", database);
@@ -230,7 +230,7 @@ class OrderService implements RequiresDependency {
   private logger!: LoggerService;
   private cache?: CacheService;
   
-  setDepdencyLoader(loader: DependencyLoader): void {
+  setDependencyLoader(loader: DependencyLoader): void {
     this.database = loader<AppContainers, "database">("database");
     this.logger = loader<AppContainers, "logger">("logger");
     this.cache = loader<AppContainers, "cache">("cache");
@@ -312,7 +312,7 @@ Use the `RequiresDependency` interface for services that need dependencies:
 class MyService implements RequiresDependency {
   private logger!: LoggerService;
   
-  setDepdencyLoader(loader: DependencyLoader): void {
+  setDependencyLoader(loader: DependencyLoader): void {
     this.logger = loader<AppContainers, "logger">("logger");
   }
 }
@@ -335,7 +335,7 @@ Always set up dependency injection in providers before binding services:
 ```typescript
 async register(): Promise<void> {
   const service = new MyService();
-  service.setDepdencyLoader(AppSingleton.container);
+  service.setDependencyLoader(AppSingleton.container);
   this.bind("myService", service);
 }
 ```
