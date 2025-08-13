@@ -1,6 +1,6 @@
 import {
-  DependencyLoader,
-  RequiresDependency,
+    DependencyLoader,
+    RequiresDependency,
 } from "@/interfaces/Dependency.t";
 import { TestContainers } from "../providers/providers";
 import LoggerService from "./LoggerService";
@@ -19,7 +19,7 @@ class AltMockDatabaseService implements RequiresDependency {
     protected connected: boolean = false,
   ) {}
 
-  setDepdencyLoader(loader: DependencyLoader): void {
+  setDependencyLoader(loader: DependencyLoader): void {
     this.logger = loader<TestContainers, "logger">("logger");
   }
 

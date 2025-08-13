@@ -79,7 +79,7 @@ describe("Dependency Loader Test Suite", () => {
       });
 
       const database = new MockDatabaseService();
-      database.setDepdencyLoader(loader);
+      database.setDependencyLoader(loader);
 
       expect(typeof database.logger?.log === "function").toBeTruthy();
     });

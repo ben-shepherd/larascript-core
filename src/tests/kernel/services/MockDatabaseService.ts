@@ -19,7 +19,7 @@ class MockDatabaseService implements RequiresDependency {
     protected connected: boolean = false,
   ) {}
 
-  setDepdencyLoader(loader: DependencyLoader): void {
+  setDependencyLoader(loader: DependencyLoader): void {
     this.logger = loader<TestContainers, "logger">("logger");
   }
 

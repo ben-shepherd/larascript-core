@@ -8,5 +8,5 @@ export type DependencyLoader<C extends Containers = Containers> = <
 ) => T[K];
 
 export interface RequiresDependency {
-  setDepdencyLoader(loader: DependencyLoader): void;
+  setDependencyLoader(loader: DependencyLoader): void;
 }

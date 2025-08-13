@@ -29,7 +29,7 @@ export const dependencyLoader = () => AppSingleton.dependencies();
  * @returns The same instance with dependencies injected.
  */
 export const withDependencies = <T extends RequiresDependency>(instance: T) => {
-  instance.setDepdencyLoader(dependencyLoader());
+  instance.setDependencyLoader(dependencyLoader());
   return instance;
 };
 
